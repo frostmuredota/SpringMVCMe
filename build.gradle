@@ -14,6 +14,7 @@ jar {
 repositories {
     mavenCentral()
 }
+defaultTasks 'test'
 
 dependencies {
     compile group: 'commons-collections', name: 'commons-collections', version: '3.2'
@@ -26,6 +27,9 @@ dependencies {
 
 test {
     systemProperties 'property': 'value'
+}
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.0'
 }
 
 uploadArchives {
