@@ -1,0 +1,49 @@
+<html>
+<head>
+<title>Spring MVC Tutorial- Hello World Spring MVC
+	Example</title>
+<style type="text/css">
+body {
+	background-image: url('http://crunchify.com/bg.png');
+}
+</style>
+</head>
+<body>
+	<div style="text-align: center"></div>
+
+	<br>
+	<br>
+	<div
+		style="font-family: verdana; padding: 10px; border-radius: 10px; font-size: 12px; text-align: center;">
+		<h2>Registro de Usuario</h2>
+		<form method="post" action="inicio.html">
+			<table align="center">
+				<tr>
+					<td>Nombre:</td>
+					<td><input name="name" /></td>
+					<td><h3><font color="red">${namefail}</font></h3></td>
+				</tr>
+				<tr>
+					<td>Apellido:</td>
+					<td><input name="lastn"/></td>
+					<td><h3><font color="red">${lastnfail}</font></h3></td>
+				</tr>
+				<tr>
+					<td>Username:</td>
+					<td><input name="username"/></td>
+					<td><h3><font color="red">${userfail}</font></h3></td>
+				</tr>
+				<tr>
+					<td>Contraseña:</td>
+					<td><input name="password" type="password"/></td>
+					<td><h3><font color="red">${passfail}</font></h3></td>
+				</tr>
+				<tr>
+				<td colspan=2><input type="submit" value="Registrarse" /></td>
+				</tr>
+			</table>
+		</form>
+		<!--  <h3><font color="red">${error}</font></h3>-->
+	</div>
+</body>
+</html>

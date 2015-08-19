@@ -1,0 +1,22 @@
+<html>
+<head>
+<title>Spring MVC Example</title>
+<style type="text/css">
+body {
+	background-image: url('http://crunchify.com/bg.png');
+}
+</style>
+</head>
+<body>
+	<br>
+	<div style="text-align:center">
+		<h2>
+			Inicio de Sesión<br> <br>
+		</h2>
+		<h3>
+			<a href="inicio.html">Si quieres iniciar sesión, haz click aquí </a></br>
+			<a href="registro.html">Si quieres registrarte, haz click aquí </a>
+		</h3>
+	</div>
+</body>
+</html>
