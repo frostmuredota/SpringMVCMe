@@ -2,4 +2,4 @@ SYNOPSIS
 
 This project is create using gradle, with SpringMVC, CSS and basic Javascript.
 
-This project required gradle, SpringMVC
+For compile this project, is neccesary have gradle configured in the computer. 
