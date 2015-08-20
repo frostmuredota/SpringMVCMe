@@ -19,9 +19,9 @@ import org.springframework.ui.ModelMap;
 @SessionAttributes({ "Nombre", "Apellido","Username","Password" })
 public class SuperController {
 	private static Persona[] per = {
-			new Persona("Jose", "Pérez", "joselote", "1114"),
+			new Persona("Jose", "Pérez", "joselote", "11144"),
 			new Persona("Camilo", "Fernandez", "camilon123", "11123"),
-			new Persona(" Ramón", "Duran", "admin", "1234") };
+			new Persona(" Ramón", "Duran", "admin", "12345") };
 
 	@RequestMapping("/inicio")
 	public ModelAndView helloWorld() {
@@ -120,6 +120,7 @@ public class SuperController {
 			@RequestParam("username") String user,
 			@RequestParam("password") String pass, ModelMap model,
 			RedirectAttributes redirectAttributes) {
+		/*
 		if (name == "" && last == "" && user == "" && pass == "") {
 			redirectAttributes.addFlashAttribute("namefail", "Campo inválido");
 			redirectAttributes.addFlashAttribute("lastnfail", "Campo inválido");
@@ -127,6 +128,7 @@ public class SuperController {
 			redirectAttributes.addFlashAttribute("passfail", "Campo inválido");
 			return "redirect:registro";
 		} else {
+		*/
 			Persona p1 = new Persona(name, last, user, pass);
 			Persona p2=buscarPersona1(user);
 			if(p2!=null){
@@ -143,7 +145,7 @@ public class SuperController {
 			}
 		}
 
-	}
+	//}
 	public static Persona buscarPersona(String username, String password) {
 		Persona aux = null;
 		int i = 0;
