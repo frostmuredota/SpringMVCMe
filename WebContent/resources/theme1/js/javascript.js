@@ -10,7 +10,7 @@ $(function() {
             username:"required",
             password: {
                 required: true,
-                minlength: 5
+                minlength: 6
             }
            
         },
@@ -43,7 +43,7 @@ $(function() {
             username: "required",
             password: {
                 required: true,
-                minlength: 5
+                minlength: 6
             }
            
         },

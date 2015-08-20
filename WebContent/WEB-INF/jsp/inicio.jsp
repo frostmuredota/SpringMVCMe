@@ -20,12 +20,12 @@
 			<table align="center">
 				<tr>
 					<td>Usuario:</td>
-					<td><input name="username" id="username"/>*</td>
+					<td><input name="username" id="username"/></td>
 					<td><h3><font color="red">${userfail}</font></h3></td>
 				</tr>
 				<tr>
 					<td>Contraseña:</td>
-					<td><input name="password" type="password" id="password"/>*</td>
+					<td><input name="password" type="password" id="password"/></td>
 					<td><h3><font color="red">${passfail}</font></h3></td>
 				</tr>
 				<tr>

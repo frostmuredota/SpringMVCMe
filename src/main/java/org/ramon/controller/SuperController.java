@@ -19,9 +19,9 @@ import org.springframework.ui.ModelMap;
 @SessionAttributes({ "Nombre", "Apellido","Username","Password" })
 public class SuperController {
 	private static Persona[] per = {
-			new Persona("Jose", "Pérez", "joselote", "11144"),
-			new Persona("Camilo", "Fernandez", "camilon123", "11123"),
-			new Persona(" Ramón", "Duran", "admin", "12345") };
+			new Persona("Jose", "Pérez", "joselote", "111444"),
+			new Persona("Camilo", "Fernandez", "camilon123", "111233"),
+			new Persona(" Ramón", "Duran", "admin", "123455") };
 
 	@RequestMapping("/inicio")
 	public ModelAndView helloWorld() {

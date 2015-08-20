@@ -19,22 +19,22 @@
 			<table align="center">
 				<tr>
 					<td>Nombre:</td>
-					<td><input name="name" id="name" class="f1"/>*</td>
+					<td><input name="name" id="name" class="f1"/></td>
 					<td><h3><font color="red">${namefail}</font></h3></td>
 				</tr>
 				<tr>
 					<td>Apellido:</td>
-					<td><input name="lastn" id="lastn" class="f1"/>*</td>
+					<td><input name="lastn" id="lastn" class="f1"/></td>
 					<td><h3><font color="red">${lastnfail}</font></h3></td>
 				</tr>
 				<tr>
 					<td>Username:</td>
-					<td><input name="username" id="username" class="f1"/>*</td>
+					<td><input name="username" id="username" class="f1"/></td>
 					<td><h3><font color="red">${userfail}</font></h3></td>
 				</tr>
 				<tr>
 					<td>Contraseña:</td>
-					<td><input name="password" type="password" id="password" class="f1"/>*</td>
+					<td><input name="password" type="password" id="password" class="f1"/></td>
 					<td><h3><font color="red">${passfail}</font></h3></td>
 				</tr>
 				<tr>
