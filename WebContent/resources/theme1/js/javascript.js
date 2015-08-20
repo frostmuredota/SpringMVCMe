@@ -1,3 +1,28 @@
+
+//Change the color to inputs type text
+$(document).ready(function() {
+    $('input:text').click(
+    function(){
+        $(this).css({'background-color' : '#FFEEAA'});
+    });
+
+    $('input:text').blur(
+    function(){
+        $(this).css({'background-color' : '#FFFFFF'});
+    });
+    
+  //Change the color to inputs type password
+    $('input:password').click(
+    	    function(){
+    	        $(this).css({'background-color' : '#FFEEAA'});
+    });
+
+    $('input:password').blur(
+    function(){
+    $(this).css({'background-color' : '#FFFFFF'});
+    });
+    
+});
 $(function() {
   
     // Setup form validation on the #register-form element
@@ -22,7 +47,7 @@ $(function() {
             username: "Please enter your username",
             password: {
                 required: "Please provide a password",
-                minlength: "Your password must be at least 5 characters long"
+                minlength: "Your password must be at least 6 characters long"
             }
         },
         

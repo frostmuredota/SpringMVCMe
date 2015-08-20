@@ -47,3 +47,7 @@ body{
 td label {
     color: #FF0000;
 }
+.focus {
+    border: 2px solid #AA88FF;
+    background-color: #FFEEAA;
+}

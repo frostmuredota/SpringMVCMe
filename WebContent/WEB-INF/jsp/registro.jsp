@@ -5,7 +5,6 @@
 <head>
 <title>Spring MVC</title>
 <link href="<c:url value="/resources/css/main.css" />" rel="stylesheet">
-<!-- <script type="text/javascript" src="<c:url value="/resources/js/javascript.js" />"></script>-->
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
 <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
 <script type="text/javascript" src="./javascript.js"></script>
@@ -19,7 +18,7 @@
 			<table align="center">
 				<tr>
 					<td>Nombre:</td>
-					<td><input name="name" id="name" class="f1"/></td>
+					<td><input name="name" class="f1"/></td>
 					<td><h3><font color="red">${namefail}</font></h3></td>
 				</tr>
 				<tr>
