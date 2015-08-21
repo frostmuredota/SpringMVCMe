@@ -17,16 +17,16 @@ import org.springframework.ui.ModelMap;
 @Controller
 @Scope("session")
 // MultiAtributtes to session
-@SessionAttributes({ "Nombre", "Apellido", "Username", "Password" })
+@SessionAttributes({ "Nombre", "Apellido", "Username","Email", "Password" })
 public class SuperController {
 	private static Persona[] per = {
-			new Persona("Jose", "Pérez", "joselote", "111444"),
-			new Persona("Camilo", "Fernandez", "camilon123", "111233"),
-			new Persona(" Ramón", "Duran", "admin", "123455") };
+			new Persona("Jose", "Pérez", "joselote","jose@gmail.com", "111111"),
+			new Persona("Camilo", "Fernandez", "camilon123","camilo@gmail.com", "222222"),
+			new Persona(" Ramón", "Duran", "admin", "anonymous@gmail.com","123456") };
 
 	@RequestMapping("/inicio")
 	public ModelAndView helloWorld() {
-		return new ModelAndView("inicio", "message", "Inicio de Sesión");
+		return new ModelAndView("inicio", "message", "Session Login");
 	}
 
 	@RequestMapping("/eliminar")
@@ -48,15 +48,9 @@ public class SuperController {
 		return m;
 
 	}
-
-	@RequestMapping("/editar")
-	public ModelAndView alIndex() {
-		return new ModelAndView("editar", "message", "Inicio de Sesión");
-	}
-
 	@RequestMapping("/registro")
 	public ModelAndView registro() {
-		return new ModelAndView("registro", "message", "Inicio de Sesión");
+		return new ModelAndView("registro", "message", "Session Login");
 	}
 
 	@RequestMapping(value = "/registrado", method = { RequestMethod.POST })
@@ -79,6 +73,7 @@ public class SuperController {
 				model.addAttribute("bienvenido", "Bienvenido");
 				model.addAttribute("Username", p.getUsername());
 				model.addAttribute("Password", p.getPassword());
+				model.addAttribute("Email", p.getEmail());
 				model.addAttribute("Nombre", persona.getNombre());
 				model.addAttribute("Apellido", persona.getApellido());
 				return "registrado";
@@ -86,7 +81,7 @@ public class SuperController {
 
 		} else {
 			redirectAttributes.addFlashAttribute("error",
-					"Usuario o password inválido");
+					"wrong in user or password");
 			return "redirect:inicio";
 		}
 
@@ -97,10 +92,10 @@ public class SuperController {
 	@RequestMapping(value = "/inicio", method = { RequestMethod.POST })
 	public String compruebaRegistro(@RequestParam("name") String name,
 			@RequestParam("lastn") String last,
-			@RequestParam("username") String user,
+			@RequestParam("username") String user,	@RequestParam("email") String email,
 			@RequestParam("password") String pass, ModelMap model,
 			RedirectAttributes redirectAttributes) {
-		Persona p1 = new Persona(name, last, user, pass);
+		Persona p1 = new Persona(name, last, user,email, pass);
 		Persona p2 = buscarPersona1(user);
 		if (p2 != null) {
 			redirectAttributes.addFlashAttribute("error",

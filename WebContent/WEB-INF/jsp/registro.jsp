@@ -29,6 +29,10 @@
 					<td><input name="username" id="username"/></td>
 				</tr>
 				<tr>
+					<td>Email:</td>
+					<td><input name="email" id="email"/></td>
+				</tr>
+				<tr>
 					<td>Password:</td>
 					<td><input name="password" type="password" id="password" /></td>
 				</tr>

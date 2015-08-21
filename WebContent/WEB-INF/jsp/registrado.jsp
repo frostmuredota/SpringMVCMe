@@ -14,12 +14,13 @@
 		<c:when test="${Username == 'admin'}">
 			<table align="center" border=1>
 				<tr>
-					<th colspan="5">Lista de Usuarios</th>
+					<th colspan="6">User List</th>
 				</tr>
 				<tr>
 					<th>Nombre</th>
 					<th>Apellido</th>
 					<th>Username</th>
+					<th>Email</th>
 					<th>Password</th>
 					<th>Eliminar</th>
 				</tr>
@@ -28,6 +29,7 @@
 						<td><c:out value="${arr.nombre}" /></td>
 						<td><c:out value="${arr.apellido}" /></td>
 						<td><c:out value="${arr.username}" /></td>
+						<td><c:out value="${arr.email}" /></td>
 						<td><c:out value="${arr.password}" /></td>
 						<!--  <td><a href="editar.html?id=1">Editar</a></td>-->
 						
@@ -41,7 +43,7 @@
 
 
 			</table>
-			<a href="inicio.html">Volver al Inicio</a>
+			<a href="inicio.html">Close Session</a>
 
 		</c:when>
 		<c:otherwise>

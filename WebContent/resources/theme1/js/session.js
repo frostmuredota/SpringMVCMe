@@ -9,6 +9,7 @@ $(function() {
             password: {
                 required: true,
                 minlength: 6
+             
             }
            
         },
@@ -18,7 +19,8 @@ $(function() {
             username: "Please enter your username",
             password: {
                 required: "Please provide a password",
-                minlength: "Your password must be at least 5 characters long"
+                minlength: "Your password must be at least 6 characters long"
+               
             }
         },
         

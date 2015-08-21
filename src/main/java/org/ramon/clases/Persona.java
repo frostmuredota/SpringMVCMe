@@ -5,18 +5,30 @@ public class Persona {
 	private String password;
 	private String nombre;
 	private String apellido;
+	private String email;
 	
 
-	public Persona(String nombre, String apellido,String username, String password) {
+	public Persona(String nombre, String apellido,String username,String email,String password) {
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.username = username;
+		this.email=email;
 		this.password = password;
 	}
 	
 
 	public String getNombre() {
 		return nombre;
+	}
+
+
+	public String getEmail() {
+		return email;
+	}
+
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 

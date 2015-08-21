@@ -31,6 +31,7 @@
 				</tr>
 			</table>
 		</form>
+		<h3><font color="red">${error}</font></h3>
 		<a href="registro.html">For register, click here!! </a>
 	</div>
 </body>
