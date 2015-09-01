@@ -10,12 +10,9 @@
 <body>
 	<br>
 	<div class="center">
-		<h2>
-			Inicio de Sesión<br> <br>
-		</h2>
 		<h3>
-			<a href="inicio.html">Si quieres iniciar sesión, haz click aquí </a></br>
-			<a href="registro.html">Si quieres registrarte, haz click aquí </a>
+			<a href="inicio.html">For Log in, click here </a></br>
+			<a href="registro.html">For create a new user, click here </a>
 		</h3>
 	</div>
 </body>

@@ -1,21 +1,52 @@
 package org.ramon.clases;
 
 public class Persona {
+	private int id;
 	private String username;
 	private String password;
 	private String nombre;
 	private String apellido;
 	private String email;
+	private String img;
+	
 	
 
-	public Persona(String nombre, String apellido,String username,String email,String password) {
+	public Persona(int id,String nombre, String apellido,String username,String email,String password,String img) {
+		this.id=id;
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.username = username;
 		this.email=email;
 		this.password = password;
+		this.img=img;
+	
+	}
+	public Persona(int id,String nombre, String apellido,String username,String email,String password) {
+		this.id=id;
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.username = username;
+		this.email=email;
+		this.password = password;
+	
 	}
 	
+
+	public String getImg() {
+		return img;
+	}
+	public void setImg(String img) {
+		this.img = img;
+	}
+	public int getId() {
+		return id;
+	}
+
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 
 	public String getNombre() {
 		return nombre;
