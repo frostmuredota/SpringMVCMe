@@ -1,26 +1,9 @@
 package org.ramon.controller;
 
-import java.io.BufferedOutputStream;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-import java.io.File;
-import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import javax.servlet.ServletRequest;
-import javax.servlet.FilterConfig;
-import javax.servlet.ServletContext;
-import javax.servlet.ServletResponse;
-
-import org.apache.log4j.Logger;
-import org.apache.log4j.spi.LoggerFactory;
-import org.apache.naming.resources.FileDirContext;
 import org.ramon.clases.Persona;
-import org.springframework.beans.factory.NoSuchBeanDefinitionException;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.MultipartResolver;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.ui.ModelMap;
@@ -132,6 +114,11 @@ public class SuperController {
 		}
 
 	}
+	
+	@RequestMapping(value = "/SpecRunner", method = { RequestMethod.GET })
+	public String jasmineTest(){
+		return "SpecRunner";
+	}
 
 	// Comprobacion datos ingresados, solo se hara validacion en general si es
 	// que todos los datos son vacios
@@ -140,18 +127,19 @@ public class SuperController {
 			@RequestParam("lastn") String last,
 			@RequestParam("username") String user,	@RequestParam("email") String email,
 			@RequestParam("password") String pass,@RequestParam("image") MultipartFile file ,ModelMap model,
-			RedirectAttributes redirectAttributes, HttpServletRequest request) {
-	
+			RedirectAttributes redirectAttributes) {
+		  
+		   
 		//File
-		String url=request.getContextPath();
-		if (!file.isEmpty()) {
+		
+		
+		/*if (!file.isEmpty()) {
             try {
                 byte[] bytes = file.getBytes();
                 // Creating the directory to store file
                 String a=System.getProperty("user.home");
-                System.out.println(a);
                 //System.out.println(rootPath);
-                File dir = new File(a+File.separator+"workspace");
+               // File dir = new File(a+File.separator+"workspace"+ "\");"
                
                 if (!dir.exists())
                     dir.mkdirs();
@@ -175,7 +163,7 @@ public class SuperController {
         } else {
             return "You failed to upload " + name
                     + " because the file was empty.";
-        }
+        }*/
 		
 		int id=per.length+1;
 		Persona p1 = new Persona(id,name, last, user,email, pass);

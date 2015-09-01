@@ -12,7 +12,8 @@
 	<div class="center">
 		<h3>
 			<a href="inicio.html">For Log in, click here </a></br>
-			<a href="registro.html">For create a new user, click here </a>
+			<a href="registro.html">For create a new user, click here </a><br>
+			<a href="SpecRunner.html">Go Jasmine Test</a>
 		</h3>
 	</div>
 </body>
