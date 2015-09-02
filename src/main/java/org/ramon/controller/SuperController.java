@@ -1,13 +1,11 @@
 package org.ramon.controller;
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
-import org.ramon.classes.Persona;
+import org.ramon.model.Persona;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -27,10 +25,12 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 public class SuperController {
 	
-	
+
 	private static Persona[] per = {
 			new Persona(2,"Camilo", "Fernandez", "camilon123","camilo@gmail.com", "222222","img2.jpg"),
-			new Persona(3," Ramón", "Duran", "admin", "anonymous@gmail.com","123456","img3.jpg") };
+			new Persona(3," Ramon", "Duran", "admin", "anonymous@gmail.com","123456","img3.jpg") };
+	
+	private List<Persona> personas;
 
 	@RequestMapping("/inicio")
 	public ModelAndView helloWorld(){
@@ -149,8 +149,8 @@ public class SuperController {
 			System.arraycopy(per, 0, aux, 0, per.length);
 			aux[aux.length - 1] = p1;
 			per = aux;
-			model.addAttribute("exito", "Usuario creado exitósamente");
-			model.addAttribute("message", "Inicio de Sesión");
+			model.addAttribute("exito", "Usuario creado exitosamente");
+			model.addAttribute("message", "Inicio de Sesion");
 			return "inicio";
 		}
 	}

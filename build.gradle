@@ -2,6 +2,7 @@ apply plugin: 'java'
 apply plugin: 'eclipse'
 apply plugin: 'jetty'
 
+
 sourceCompatibility = 1.7
 version = '1.0'
 jar {
@@ -10,6 +11,8 @@ jar {
                    'Implementation-Version': version
     }
 }
+
+  
 
 repositories {
     mavenCentral()
@@ -43,6 +46,9 @@ task wrapper(type: Wrapper) {
     gradleVersion = '2.0'
 }
 
+compileJava { 
+  options.encoding = "UTF-8" 
+}
 uploadArchives {
     repositories {
        flatDir {
