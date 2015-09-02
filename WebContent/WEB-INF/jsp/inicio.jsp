@@ -9,14 +9,14 @@
 <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
 <!--  <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyCJnj2nWoM86eU8Bq2G4lSNz3udIkZT4YY&sensor=false"></script>-->
 <script type="text/javascript" src="<c:url value="/resources/js/javascript.js" />"></script>
-<script type="text/javascript" src="<c:url value="/resources/js/session.js" />"></script>
+<script type="text/javascript" src="<c:url value="/resources/js/initsession.js" />"></script>
 </head>
 <body>
 		<br>
 	<br>
 	<div class="index">
 		<h2>${message}</h2>
-		<form method="post" action="registrado.html" id="session" novalidate="novalidate" onsubmit="return session();">
+		<form method="post" action="registrado.html" id="session" novalidate="novalidate" onsubmit="return initsession();">
 			<table align="center">
 				<tr>
 					<td>Username:</td>

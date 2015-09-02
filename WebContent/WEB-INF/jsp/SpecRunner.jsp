@@ -17,7 +17,7 @@
 
 <!-- FILES TO TEST -->
  <script type="text/javascript" src="<c:url value="/resources/js/register.js" />"></script>
- <script type="text/javascript" src="<c:url value="/resources/js/session.js" />"></script>
+ <script type="text/javascript" src="<c:url value="/resources/js/initsession.js" />"></script>
  <script type="text/javascript" src="<c:url value="/resources/js/update.js" />"></script>
  
  <!-- SPECTS -->

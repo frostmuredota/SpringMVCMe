@@ -36,7 +36,7 @@
 				</tr>
 				<tr>
 				   <td>Sex:</td>
-					<td><input type="radio" name="sex" value="M" checked/>Male<input type="radio" name="sex" value="F" />Female</td>
+					<td><input type="radio" id="male" value="M" />Male<input type="radio" id="female" value="F" />Female</td>
 				</tr>
 				<tr>
 					<td>Email:</td>

@@ -11,8 +11,8 @@ var update=function(){
 		if(isValidate(document.getElementById("name"),"Please use uppercase and lowercase letters for the field name")){
 			if(isValidate(document.getElementById("lastn"),"Please use uppercase and lowercase letters for the field Last name")){
 				if(validateUser(document.getElementById("username"),"Please use letters and numbers for the field username")){
-						if(validateEmail(document.getElementById("email"),"Please use a valid email")){
-							if(validatePassword(document.getElementById("password"),6,8)){
+						if(validateEmail(document.getElementById("email").value,"Please use a valid email")){
+							if(validatePassword(document.getElementById("password").value.length,6,8)){
 								alert("All fields Updates");
 								return true;
 							}else{
@@ -36,43 +36,43 @@ var update=function(){
 };
 
 var  isValidate= function(element,message){
-	var expression = /^[a-zA-Z]+$/;
-	if(element.value.match(expression)){
+	
+	if(element.length!=0){
 		return true;
 	}else{
 		alert(message);
-		element.focus();
 		return false;
 	}
 };
 
 function validateUser(element,message){
-	var expression = /^[a-zA-Z0-9]+$/;
-	if(element.value.match(expression)){
+;
+	if(element.length!=0){
 		return true;
 	}else{
 		alert(message);
-		element.focus();
 		return false;
 	}
 }
 function validatePassword(element, min, max){
-	var val = element.value;
-	if(val.length >= min && val.length <= max){
+	if(element >= min && element <= max){
 		return true;
 	}else{
 		alert("Please enter between " +min+ " and " +max+ " characters");
-		element.focus();
 		return false;
 	}
 }
 function validateEmail(element,message){
-	var regex= /^([a-zA-Z0-9_.-])+@([a-zA-Z0-9_.-])+\.([a-zA-Z])+([a-zA-Z])+/;
-	if(element.value.match(regex)){
-		return true;
+	if(element!=""){
+		var regex= /^([a-zA-Z0-9_.-])+@([a-zA-Z0-9_.-])+\.([a-zA-Z])+([a-zA-Z])+/;
+		if(element.match(regex)){
+			return true;
+		}else{
+			alert(message);
+			return false;
+		}
 	}else{
-		alert(message);
-		element.focus();
 		return false;
 	}
+	
 }

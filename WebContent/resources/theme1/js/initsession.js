@@ -1,4 +1,4 @@
-function session(){
+function initsession(){
 	var a = document.getElementById("username").value.length;
 	var b = document.getElementById("password").value.length;
 	
@@ -6,8 +6,8 @@ function session(){
 		alert("Please, complete all the fields");
 		return false;
 	}else{
-		if(validateUser(document.getElementById("username"),"Please complete the field username")){
-			if(validatePassword(document.getElementById("password"),6,8)){
+		if(validateUser(document.getElementById("username").value,"Please complete the field username")){
+			if(validatePassword(document.getElementById("password").value.length,6,8)){
 				return true;
 			}else{
 				return false;
@@ -17,23 +17,21 @@ function session(){
 		}
 	}
 }
-function validateUser(element,message){
-	var expression = /^[a-zA-Z0-9]+$/;
-	if(element.value.match(expression)){
+
+
+var validateUser = function(element,message){
+	if(element.length!=""){
 		return true;
 	}else{
 		alert(message);
-		element.focus();
 		return false;
 	}
-}
+};
 function validatePassword(element, min, max){
-	var val = element.value;
-	if(val.length >= min && val.length <= max){
+	if(element >= min && element <= max){
 		return true;
 	}else{
 		alert("Please enter between " +min+ " and " +max+ " characters");
-		element.focus();
 		return false;
 	}
 }
