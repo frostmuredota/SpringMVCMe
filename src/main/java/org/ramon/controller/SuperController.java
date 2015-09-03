@@ -17,7 +17,7 @@ import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
+import org.ramon.dao.*;
 @Controller
 @Scope("session")
 // MultiAtributtes to session
@@ -25,13 +25,14 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 public class SuperController {
 	
-
-	private static Persona[] per = {
-			new Persona(2,"Camilo", "Fernandez", "camilon123","camilo@gmail.com", "222222","img2.jpg"),
-			new Persona(3," Ramon", "Duran", "admin", "anonymous@gmail.com","123456","img3.jpg") };
+	private static jdbcPersonaDao jdbc=new jdbcPersonaDao();
+	private static List<Persona> personas;
 	
-	private List<Persona> personas;
-
+	public SuperController(){
+		
+		 personas=jdbc.getPersonas();
+	}
+	
 	@RequestMapping("/inicio")
 	public ModelAndView helloWorld(){
 		return new ModelAndView("inicio", "message", "Session Login");
@@ -43,7 +44,7 @@ public class SuperController {
 		@RequestParam("username") String user,	@RequestParam("email") String email,ModelMap model,
 		@RequestParam("password") String pass, @RequestParam("id") String id) {
 		ModelAndView m = new ModelAndView();
-		Persona persona = buscarPersonaId(Integer.parseInt(id));
+		Persona persona = buscarPersonaIdList(Integer.parseInt(id));
 		persona.setNombre(name);
 		persona.setApellido(last);
 		persona.setEmail(email);
@@ -63,7 +64,7 @@ public class SuperController {
 	@RequestMapping("/eliminar")
 	public ModelAndView eliminar(@RequestParam(value = "id") String getid,
 			RedirectAttributes redirectAttributes) {
-		ArrayList<Persona> personas = new ArrayList<Persona>(Arrays.asList(per));
+		
 		StringBuilder ids = new StringBuilder(getid);
 		ids.deleteCharAt(0);
 		ids.deleteCharAt(1);
@@ -71,7 +72,6 @@ public class SuperController {
 		int id = Integer.valueOf(b);
 		personas.remove(id);
 		ModelAndView m = new ModelAndView();
-		per = personas.toArray(new Persona[personas.size()]);
 		m.addObject("persons", personas);
 		m.addObject("username", "Username");
 		m.addObject("password", "Password");
@@ -88,11 +88,10 @@ public class SuperController {
 	public String inicioSesion (@RequestParam("username") String user,
 			@RequestParam("password") String pass, Persona p ,ModelMap model,
 			RedirectAttributes redirectAttributes, SessionStatus sessionStatus) {
-		Persona persona = buscarPersona(user, pass);
+	
+		Persona persona = buscarPersonaList(user, pass);
 		if (persona != null) {
 			if (persona.getUsername().equals("admin")) {
-				ArrayList<Persona> personas = new ArrayList<Persona>(
-						Arrays.asList(per));
 				model.addAttribute("persons", personas);
 				model.addAttribute("Nombre", " ");
 				model.addAttribute("Apellido", " ");
@@ -132,8 +131,11 @@ public class SuperController {
 			@RequestParam("password") String pass,@RequestParam("image") MultipartFile file ,ModelMap model,
 			RedirectAttributes redirectAttributes) throws IOException {
 		 
-		int id=per.length+1;
-		Persona p2 = buscarPersona1(user);
+		
+		int id=personas.size()+1;
+		
+		Persona p2 = buscarPersonaUserList(user);
+
 		if (p2 != null) {
 			redirectAttributes.addFlashAttribute("error",
 					"* Su username esta en uso");
@@ -145,52 +147,23 @@ public class SuperController {
 			String filePath = "C:/Users/rduran/workspace/SpringMVCMe/WebContent/images/"; 
 			file.transferTo(new File(filePath + file.getOriginalFilename()));
 			p1.setImg(file.getOriginalFilename());
-			Persona[] aux = new Persona[per.length + 1];
-			System.arraycopy(per, 0, aux, 0, per.length);
-			aux[aux.length - 1] = p1;
-			per = aux;
+			personas.add(p1);
 			model.addAttribute("exito", "Usuario creado exitosamente");
 			model.addAttribute("message", "Inicio de Sesion");
 			return "inicio";
 		}
 	}
 
-	public static Persona buscarPersona(String username, String password) {
+	//SEARCH FOR LIST
+	
+	public static Persona buscarPersonaList(String username, String password) {
 		Persona aux = null;
 		int i = 0;
-		while (i < per.length && aux == null) {
-			if (per[i].getUsername().equals(username)
-					&& per[i].getPassword().equals(password)) {
-				aux = per[i];
-			} else {
-				aux = null;
-			}
-			i++;
-		}
-		return aux;
-
-	}
-
-	public static Persona buscarPersona1(String username) {
-		Persona aux = null;
-		int i = 0;
-		while (i < per.length && aux == null) {
-			if (per[i].getUsername().equals(username)) {
-				aux = per[i];
-			} else {
-				aux = null;
-			}
-			i++;
-		}
-		return aux;
-
-	}
-	public static Persona buscarPersonaId(int id) {
-		Persona aux = null;
-		int i = 0;
-		while (i < per.length && aux == null) {
-			if (per[i].getId()==id) {
-				aux = per[i];
+		while (i < personas.size() && aux == null) {
+			if (personas.get(i).getUsername().equals(username)
+					&& personas.get(i).getPassword().equals(password)) {
+				aux = personas.get(i);
+				
 			} else {
 				aux = null;
 			}
@@ -200,6 +173,37 @@ public class SuperController {
 
 	}
 	
+	
+	public static Persona buscarPersonaUserList(String username) {
+		Persona aux = null;
+		int i = 0;
+		while (i < personas.size() && aux == null) {
+			if (personas.get(i).getUsername().equals(username)) {
+				aux = personas.get(i);
+			} else {
+				aux = null;
+			}
+			i++;
+		}
+		return aux;
+
+	}
+	
+	public static Persona buscarPersonaIdList(int id) {
+		Persona aux = null;
+		int i = 0;
+		while (i < personas.size() && aux == null) {
+			if (personas.get(i).getId()==id) {
+				aux = personas.get(i);
+				
+			} else {
+				aux = null;
+			}
+			i++;
+		}
+		return aux;
+
+	}
 	
 	
 
